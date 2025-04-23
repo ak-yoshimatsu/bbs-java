@@ -41,7 +41,7 @@ public class SecurityConfig {
      */
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth.requestMatchers("/login").anonymous() // ログイン済みユーザーは /login にアクセスできない
+        http.authorizeHttpRequests(auth -> auth.requestMatchers("/login").permitAll() // 全ユーザーアクセス可能
                 .anyRequest().hasRole("USER")) // その他のリクエストは "USER" ロールが必要
                 .formLogin(form -> form.loginPage("/login") // カスタムログインページの指定
                         .defaultSuccessUrl("/", true)) // ログイン成功時のリダイレクト先
