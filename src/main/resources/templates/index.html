@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <h1>Indexページ</h1>
+<div th:if="${#authorization.expression('isAuthenticated()')}">
+    ようこそ、<span th:text="${#authentication.name}">ユーザー</span> さん！
+</div>
+
+<a th:href="@{/logout}">ログアウト</a>
 </body>
 </html>
