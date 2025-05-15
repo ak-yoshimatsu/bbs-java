@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿詳細 - BSS Spring Boot</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-light">
+    <!-- ヘッダー -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../../index.html">BSS Spring Boot</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ヘルプ</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-light">ログアウト</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="container py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../../index.html">ホーム</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">投稿詳細</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- 投稿内容 -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-white py-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="card-title mb-0">投稿内容</h3>
+                            <div class="text-muted">
+                                <small>投稿者: 山田太郎</small>
+                                <small class="ms-2">投稿日: 2025/01/15 14:30</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- タイトル -->
+                        <div class="mb-4">
+                            <h5 class="form-label fw-bold">タイトル</h5>
+                            <div class="p-3 bg-white border rounded">
+                                Spring Bootでのデータベース接続について質問があります
+                            </div>
+                        </div>
+
+                        <!-- 内容 -->
+                        <div class="mb-4">
+                            <h5 class="form-label fw-bold">内容</h5>
+                            <div class="p-3 bg-white border rounded">
+                                <p>Spring Bootアプリケーションで、MySQLデータベースに接続する際に問題が発生しています。</p>
+                                <p>application.propertiesファイルに以下のように設定しましたが、起動時に接続エラーが表示されます：</p>
+                                <pre class="bg-light p-2 rounded">spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update</pre>
+                                <p>エラーメッセージは以下の通りです：</p>
+                                <pre class="bg-light p-2 rounded">java.net.ConnectException: Connection refused: connect</pre>
+                                <p>MySQLサーバーは起動していることを確認済みです。どのように解決すればよいでしょうか？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- コメント一覧 -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h3 class="card-title mb-0">コメント一覧</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- コメント1 -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-bold me-2">鈴木一郎</span>
+                                    <small class="text-muted">2025/01/15 15:45</small>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-white border rounded">
+                                <p>ポート番号が正しく設定されているか確認してみてください。デフォルトのMySQLポートは3306ですが、別のポートを使用している可能性があります。</p>
+                            </div>
+                        </div>
+
+                        <!-- コメント2 -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-bold me-2">佐藤花子</span>
+                                    <small class="text-muted">2025/01/15 16:20</small>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-white border rounded">
+                                <p>MySQLのユーザー権限も確認してみてください。rootユーザーで接続しようとしていますが、適切な権限が設定されていない可能性があります。</p>
+                            </div>
+                        </div>
+
+                        <!-- コメント投稿フォーム -->
+                        <div class="mt-4">
+                            <h5 class="mb-3">コメントを投稿する</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="コメントを入力してください"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-send me-1"></i> コメントを投稿
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>BSS Spring Boot</h5>
+                    <p>みんなで作る、みんなのための掲示板</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>リンク</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../../index.html" class="text-white">ホーム</a></li>
+                        <li><a href="#" class="text-white">利用規約</a></li>
+                        <li><a href="#" class="text-white">プライバシーポリシー</a></li>
+                        <li><a href="#" class="text-white">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>フォローする</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-github fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 BSS Spring Boot. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
